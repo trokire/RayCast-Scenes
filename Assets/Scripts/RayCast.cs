@@ -8,15 +8,12 @@ using UnityEngine.UI;
 public class RayCast : MonoBehaviour
 {
     
-    [Header("UI")]
     public Text time;
     
-    [Header("Timer")]
     public int totalTime = 5; 
     private float nextTime;             
     private float pauseTime;
 
-    [Header("Escena")]
     private int option;   
     private bool isClicked;
     private bool isWorking;
@@ -29,7 +26,6 @@ public class RayCast : MonoBehaviour
         isWorking=false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -72,21 +68,21 @@ public class RayCast : MonoBehaviour
     void Timer()
     {
         if (Time.time > nextTime)
-            {
-                nextTime = Time.time + pauseTime;
+        {
+            nextTime = Time.time + pauseTime;
 
-                if(totalTime >= 0)
-                {
-                totalTime--;
-                }
+            if(totalTime >= 0)
+            {
+            totalTime--;
             }
+        }
                 
             
-            if (totalTime < 0)
-            {      
-                totalTime = 0;
-            }
-            time.text=totalTime.ToString();
+        if (totalTime < 0)
+        {      
+            totalTime = 0;
+        }
+        time.text=totalTime.ToString();
     }
 
     IEnumerator Count()
@@ -104,7 +100,5 @@ public class RayCast : MonoBehaviour
         {
             SceneManager.LoadScene("Scene1 3");
         }
-    
     }
-
 }
